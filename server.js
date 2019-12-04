@@ -87,6 +87,7 @@ app.get('/', function (req, res) {
       if (err) {
         console.log('Error running count. Message:\n'+err);
       }
+      console.log(ip)
       res.render('index.html', { pageCountMessage : count, nodeIp: ip });
     });
   } else {

@@ -141,7 +141,8 @@
         "name": "${NAME}",
         "annotations": {
           "description": "Defines how to deploy the application server",
-          "template.alpha.openshift.io/wait-for-ready": "true"
+          "template.alpha.openshift.io/wait-for-ready": "true",
+          "haproxy.router.openshift.io/balance": "roundrobin"  
         }
       },
       "spec": {

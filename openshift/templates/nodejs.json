@@ -210,6 +210,14 @@
                     }
                 },
                 "env": [
+                  {
+                    "name": "IP",
+                    "valueFrom": {
+                      "fieldRef": {
+                        "fieldPath": "status.podIP"
+                      }
+                    }
+                  }
                 ]
               }
             ]

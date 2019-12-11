@@ -8,7 +8,7 @@ Object.assign=require('object-assign')
 app.engine('html', require('ejs').renderFile);
 app.use(morgan('combined'))
 
-var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+var port = process.env.PORT || process.env._SERVICE_HOST || 8080,
     ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
     mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
     mongoURLLabel = "";
@@ -87,10 +87,10 @@ app.get('/', function (req, res) {
       if (err) {
         console.log('Error running count. Message:\n'+err);
       }
-      res.render('index.html', { pageCountMessage : count, nodeIp: ip || 'vaca'});
+      res.render('index.html', { pageCountMessage : count, nodeIp: ip});
     });
   } else {
-    res.render('index.html', { pageCountMessage : null, nodeIp: ip || 'vaca' });
+    res.render('index.html', { pageCountMessage : null, nodeIp: ip});
   }
 });
 

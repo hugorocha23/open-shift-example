@@ -213,7 +213,11 @@
                         "memory": "${MEMORY_LIMIT}"
                     }
                 },
-                "env": []
+                "env": [
+                  {
+                    "name": "IP",
+                    "value": "Static IP"
+                  }]
               }
             ]
           }

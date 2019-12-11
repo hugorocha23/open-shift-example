@@ -99,6 +99,14 @@
               {
                   "name": "NPM_MIRROR",
                   "value": "${NPM_MIRROR}"
+              },
+              {
+                "name": "POD_IP",
+                "valueFrom": {
+                  "fieldRef": {
+                    "fieldPath": "status.podIP"
+                  }
+                }
               }
             ]
           }
@@ -209,16 +217,7 @@
                         "memory": "${MEMORY_LIMIT}"
                     }
                 },
-                "env": [
-                  {
-                    "name": "IP",
-                    "valueFrom": {
-                      "fieldRef": {
-                        "fieldPath": "status.podIP"
-                      }
-                    }
-                  }
-                ]
+                "env": []
               }
             ]
           }

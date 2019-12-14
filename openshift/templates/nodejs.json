@@ -99,10 +99,6 @@
               {
                   "name": "NPM_MIRROR",
                   "value": "${NPM_MIRROR}"
-              },
-              {
-                "name": "IP",
-                "value": "Static IP"
               }
             ]
           }
@@ -215,9 +211,22 @@
                 },
                 "env": [
                   {
-                    "name": "IP",
-                    "value": "Static IP"
-                  }]
+                    "name": "Example-IP",
+                    "valueFrom": {
+                      "fieldRef": {
+                        "fieldPath": "status.podIP"
+                      }
+                    }
+                  },
+                  {
+                    "name": "Example-Name",
+                    "valueFrom": {
+                      "fieldRef": {
+                        "fieldPath": "metadata.name"
+                      }
+                    }
+                  }
+                ]
               }
             ]
           }

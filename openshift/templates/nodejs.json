@@ -211,7 +211,7 @@
                 },
                 "env": [
                   {
-                    "name": "Example-IP",
+                    "name": "IP",
                     "valueFrom": {
                       "fieldRef": {
                         "fieldPath": "status.podIP"

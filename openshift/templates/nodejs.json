@@ -2,7 +2,7 @@
   "kind": "Template",
   "apiVersion": "v1",
   "metadata": {
-    "name": "agisit-lab-vaca",
+    "name": "agisit-lab",
     "annotations": {
       "openshift.io/display-name": "Node.js",
       "description": "An example Node.js application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/nodejs-ex/blob/master/README.md.",
@@ -17,8 +17,8 @@
   },
   "message": "The following service(s) have been created in your project: ${NAME}.\n\nFor more information about using this template, including OpenShift considerations, see https://github.com/sclorg/nodejs-ex/blob/master/README.md.",
   "labels": {
-      "template": "agisit-lab-vaca",
-      "app": "agisit-lab-vaca"
+      "template": "agisit-lab",
+      "app": "agisit-lab"
   },
   "objects": [
     {
@@ -48,7 +48,10 @@
       "kind": "Route",
       "apiVersion": "v1",
       "metadata": {
-        "name": "${NAME}"
+        "name": "${NAME}",
+        "annotations": {
+          "haproxy.router.openshift.io/disable_cookies": "true"
+        }
       },
       "spec": {
         "host": "${APPLICATION_DOMAIN}",
@@ -155,7 +158,7 @@
             "imageChangeParams": {
               "automatic": true,
               "containerNames": [
-                "agisit-lab-vaca"
+                "agisit-lab"
               ],
               "from": {
                 "kind": "ImageStreamTag",
@@ -181,7 +184,7 @@
           "spec": {
             "containers": [
               {
-                "name": "agisit-lab-vaca",
+                "name": "agisit-lab",
                 "image": " ",
                 "ports": [
                   {
@@ -240,7 +243,7 @@
       "displayName": "Name",
       "description": "The name assigned to all of the frontend objects defined in this template.",
       "required": true,
-      "value": "agisit-lab-vaca"
+      "value": "agisit-lab"
     },
     {
       "name": "NAMESPACE",
